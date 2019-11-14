@@ -1,0 +1,65 @@
+<%- include('includes/header') %>
+
+<div class="container py-lg-5 container--wide eqH">
+    <%- include('includes/flash') %>
+
+<div class="d-flex justify-content-between">
+    
+    <h2 id="titl"><%= post.prodfamily %> <%= post.testertype %> Downtime Report</h2>
+    
+    <% if (post.isVisitorOwner){ %>
+
+      <span class="pt-2">
+          <a href="/post/<%= post._id %>/edit" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-edit"></i></a>
+          <form class="delete-post-form d-inline" action="/post/<%= post._id %>/delete" method="POST">
+            <button class="delete-post-button text-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
+          </form>
+        </span>
+    <% } %>
+
+  </div>
+    
+  <p class="text-muted small mb-4">
+    <a href="#"><img class="avatar-tiny" src="<%= post.author.avatar %>"></a>
+      Posted by <a href="#"><%= post.author.username %></a> on <%= post.createdDate.getMonth() + 1 %>/<%= post.createdDate.getDate()%>/<%= post.createdDate.getFullYear() %></p>
+
+  <div class="container py-lg-2 container--wide eqH">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">  
+              <h6>Part Number: <%= post.partnumb %></h6>
+              
+              <h6 class="push">Downtime Start: <%= post.dateS %></h6>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-light thrdtxt">
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Downtime Resolved</th>
+                    <th scope="col">Issue</th>
+                    <!-- <th scope="col">Actions Done</th> -->
+                    <th scope="col">Total Downtime</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row rowtxt"></th>
+                    
+                    <td><%= post.dateR %></td>
+                    <td><%= post.issue %></td>
+                    <td><%= post.dtm %> hrs</td>
+                    <!-- <td><%= post.dateS %></td> -->
+                  </tr>
+                </tbody>
+              </table>
+          <p class="card-text">Actions Done : <%- post.actionsd %>.</p>
+          <!-- <p class="card-text">Actions Done : <%- post.actionsd %>.</p> -->
+          
+        </div>
+    </div>
+  </div>
+  
+  <%- include('includes/footer') %>
+ 

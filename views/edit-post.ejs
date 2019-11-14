@@ -1,0 +1,130 @@
+<%- include('includes/header') %>
+<div class="container py-md-5 container--narrow">
+      <%- include('includes/flash') %>
+
+      <a class="small font-weight-bold" href="/post/<%= post._id %>">&laquo; Back </a>
+    
+    <form action="/post/<%= post._id %>/edit" method="POST">    
+      <div class="row">
+          <div class="col-6">
+                <div class="form-group">
+                  <label for="dateS" class="text-muted mb-1"><small>Downtime - Start</small></label>
+                  <input type="datetime-local" class="form-control dateS" id="dateS" name="dateS" placeholder="dateS" value="<%= post.dateS %>" aria-label="dateS" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="form-group">
+                  <label for="dateR" class="text-muted mb-1"><small>Downtime - Resolved</small></label>
+                  <input type="datetime-local" class="form-control dateR" id="dateR" name="dateR" placeholder="dateR" aria-label="dateR" value="<%= post.dateR %>" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-sm-6">
+                    <label for="shift" class="text-muted mb-1"><small>Shift</small></label>
+                    <select name="shift" id="opt" class="form-control" placeholder="" aria-label="family" aria-describedby="basic-addon2">
+                      <option name="1st" value="1st" style="text-align-last: end;">1st</option>
+                      <option name="2nd" value="2nd">2nd</option>
+                      <option name="3rd" value="3rd">3rd</option>
+                    </select>
+                  </div>
+  
+                  <div class="form-group col-sm-6">  
+                    <label for="wwk" class="text-muted mb-1"><small>Workweek</small></label>
+                    <input name="wwk" id="opt" class="form-control form-control-md form-control-title" value="<%= post.wwk %>" type="text" placeholder="" autocomplete="off">
+                  </div>
+                </div>  
+
+                <div class="form-group">
+                  <label for="testertype" class="text-muted mb-1"><small>Tester Type</small></label>
+                      <select type="text" id="opt" class="form-control" name="testertype" placeholder="testertype" value="<%= post.testertype %>" aria-label="testertype" aria-describedby="basic-addon2">
+                        
+                        <option name="focustest" value="Focus test">Focus Test</option>
+                        <option name="focustest" value="Final test">Final Test</option>
+                      <option name="acccal1" value="acc cal 1">Accessories Cal 1</option>
+                      <option name="acctest1" value="acc test 1">Accessories Test 1</option>
+                      <option name="acctest2" value="acc test 2">Accessories Test 2</option>
+                      </select>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-sm-6">  
+                    <label for="prodfamily" class="text-muted mb-1"><small>Product Family</small></label>
+                    <select name="prodfamily" id="opt" class="form-control" placeholder="prodfamily" aria-label="prodfamily" value="<%= post.prodfamily %>" aria-describedby="basic-addon2">
+                      
+                      <option name="AT70" value="AT70">AT70</option>
+                      <option name="DM300(Owl)" value="DM300(Owl)">DM300(Owl)</option>
+                      <option name="DM374" value="DM374)">DM374</option>
+                      <option name="DM70" value="DM70">DM70</option>
+                      <option name="DM70" value="DM70">DM70</option>
+                      <option name="DM8070" value="DM8070">DM8070</option>
+                      <option name="Merlin Vision" value="Merlin Vision">Merlin Vision</option>
+                      <option name="Oem Focus" value="OEM Focus">OEM Focus</option>
+                      <option name="Wren" value="Wren">Wren</option>
+                      <option name="Viper" value="Viper">Viper</option>
+                      <option name="Zebra" value="Zebra">Zebra</option>
+                      <option name="Kestrel" value="Kestrel">Kestrel</option>
+                      <option name="Merlin" value="Merlin" style="text-align-last: end;" >Merlin</option>
+                  
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-6">  
+                      <label for="partnumb" class="text-muted mb-1"><small>Part Number Affected</small></label>
+                      <input name="partnumb" id="opt" value="<%= post.partnumb %>" class="form-control form-control-md form-control-title" type="text" placeholder="" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="testerdesc" class="text-muted mb-1"><small>Tester Description</small></label>
+                  <input name="testerdesc" id="testerdesc" class="form-control form-control-md form-control-title" type="text" value="<%= post.testerdesc %>" placeholder="" autocomplete="off">
+              </div>
+          </div>   
+
+          <div class="col-6">
+                <div class="form-group">
+                  <label for="issue" class="text-muted mb-1"><small>Issue</small></label>
+                  <input name="issue" id="issue" class="form-control form-control-md form-control-title" value="<%= post.issue %>" type="text" placeholder="" autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                  <label for="actionsd" class="text-muted mb-1"><small>Actions Done</small></label>
+                  <textarea name="actionsd" id="actionsd" class="body-content tall-textarea form-control" type="text"><%= post.actionsd %></textarea>
+                  <!-- <textarea required name="actionsd" id="actionsd" class="body-content tall-textarea form-control" type="text"><%= post.body %></textarea> -->
+                </div>
+
+                <div class="form-group">
+                  <label for="causeoff" class="text-muted mb-1"><small>Cause of Failure</small></label>
+                  <input name="causeoff" id="causeoff" class="form-control form-control-md form-control-title" value="<%= post.causeoff %>" type="text" placeholder="" autocomplete="off">
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-sm-4">  
+                      <label for="repairedby" class="text-muted mb-1"><small>Repaired By</small></label>
+                      <input type="text" name="tech1" value="<%= post.tech1 %>" class="form-control" id="tech1" placeholder="">
+                    </div>
+                  <div class="form-group col-sm-4">  
+                      <label for="repairedby" class="text-muted mb-1"><small style="color: white;">.</small></label>
+                      <input type="text" name="tech2" value="<%= post.tech2 %>" class="form-control" id="tech2" placeholder="">
+                    </div>
+                  <div class="form-group col-sm-4">  
+                      <label for="repairedby" class="text-muted mb-1"><small style="color: white;">.</small></label>
+                      <input type="text" name="tech3" value="<%= post.tech3 %>" class="form-control" id="tech3" placeholder="">
+                  </div>
+                </div>
+
+                 <div class="form-group">
+                  <label for="dtm" class="text-muted mb-1"><small>Total Downtime</small></label>
+                  <input name="dtm" id="dtm" readonly class="form-control form-control-md form-control-title dtm" value="<%= post.dtm %>" type="text" placeholder="" autocomplete="off">
+                </div>
+      
+                </div>
+                <!-- <button class="form-group btn btn-primary btn-block">Save New Post</button> -->
+                <button class="btn btn-primary btn-block">Update</button>
+              
+              
+        </div>
+      </form>
+  </div> 
+</div>  
+  
+<!-- <script src="main.js"></script> -->
+  
+<%- include('includes/footer') %>
