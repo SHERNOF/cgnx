@@ -22,9 +22,9 @@
             <a href="#" class="text-white mr-2 header-search-icon" title="Search" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-search"></i></a>
             <span class="text-white mr-2 header-chat-icon" title="Chat" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-comment"></i></span>
             <a href="/profile/<%= user.username %>" class="mr-2"><img title="My Profile" data-toggle="tooltip" data-placement="bottom" style="width: 32px; height: 32px; border-radius: 16px;" src="<%= user.avatar %>"></a>
-            <a class="btn btn-sm btn-success mr-2" href="/create-post">Create Post</a>
+            <a class="btn btn-sm btn-success mr-2 create-post" href="/create-post">Create Post</a>
             <form action="/logout" method="POST" class="d-inline">
-              <button class="btn btn-sm btn-secondary">Sign Out</button>
+              <button class="btn btn-sm btn-secondary sign-out">Sign Out</button>
             </form>
           </div>
       <% } else { %>
@@ -37,7 +37,7 @@
               <input name="password" class="form-control form-control-sm input-dark" type="password" placeholder="Password">
             </div>
             <div class="col-md-auto">
-              <button class="btn btn-primary btn-sm">Sign In</button>
+              <button class="btn btn-primary btn-sm sign-in">Sign In</button>
             </div>
           </div>
         </form>
