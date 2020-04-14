@@ -637,34 +637,36 @@ select {
 }
 
 @media(max-height: 520px) {
-  
-}
-
-@media(max-width: 590px){
   .align-items-center{
     display: flex;
     justify-content: center;
+    font-size: 24px;
+   color: peru;
+  }
+}
+
+@media(max-width: 590px){
+ .header-bar{
+  font-size: 24px;
+  color: peru;
+ }
+ 
+  .align-items-center{
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+   color: peru;
   } 
+
+  .sgn{
+    width: 100px;
+  }
  
 #logo{
     width: 170px;
     height: 30px;
 }
 
-/* .sign-in{
-  width: 60px;
-    height: 30px;
-} */
-
-/* .sign-out{
-  width: 60px;
-    height: 30px;
-} */
-/* .create-post{
-  width: 60px;
-    height: 30px;
-}  */
-
-
 
 }
+
